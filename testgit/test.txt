@@ -1,6 +1,3 @@
 ceci est un test 2
-<<<<<<< Updated upstream
 hjjhgujjhgjgg
-=======
 hj
->>>>>>> Stashed changes
