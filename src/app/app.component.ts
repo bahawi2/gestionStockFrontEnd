@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   showhidesidebar:boolean=false;
+  onShoxsidebarchange(showhidesidebar)
+  {
+  this.showhidesidebar=showhidesidebar;
+  }
 }
