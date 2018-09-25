@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup , FormBuilder , Validators} from '@angular/forms';
 import {Produit} from '../shared/produit';
 import {ProduitService} from '../Services/produit.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-produit',
@@ -15,7 +16,7 @@ export class ProduitComponent implements OnInit {
   selectedproduit:Produit;
 
   constructor(private produitservice:ProduitService,
-              private fb:FormBuilder) {
+              private fb:FormBuilder , private route : ActivatedRoute) {
 
   }
   createForm(){
@@ -27,8 +28,9 @@ export class ProduitComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadproduits();
-    this.initialiserproduit();
+
+   this.initialiserproduit();
+    this.produits= this.route.snapshot.data.produits;
 
   }
   addProduit(){
@@ -58,29 +60,26 @@ export class ProduitComponent implements OnInit {
     );
   }
   delteProduit() {
-    const p = this.produitform.value;
-    this.produitservice.updateProduit(p).subscribe(
+    this.produitservice.deleteProduit(this.selectedproduit.id).subscribe(
       data => {
         this.loadproduits();
+        this.selectedproduit=new Produit();
       },
       err => {
-        console.log('An error has occured')
+        console.log(' deleting An error has occured')
       },
       () => {
-        console.log('Editing product was done')
+        console.log('Deleting product was done')
       }
     );
   }
-  loadproduits()
-  {
+  loadproduits() {
     this.produitservice.getProduits().subscribe(
       data=>{this.produits=data},
-      err=>{console.log('An error has occured')},
-      ()=>{console.log('loading produits was done')}
+      err=>{console.log('An error has occured')}
     );
   }
-  initialiserproduit()
-  {
+  initialiserproduit() {
     this.selectedproduit=new Produit();
     this.createForm();
   }

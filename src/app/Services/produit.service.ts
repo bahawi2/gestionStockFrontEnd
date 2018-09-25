@@ -19,8 +19,8 @@ export class ProduitService {
   updateProduit(p :Produit):Observable<any>{
     return this.http.put(API_URLS.PRODUIT_URL,p);
   }
-  deleteProduit(ref:string):Observable<any>{
-    return this.http.delete(API_URLS.PRODUIT_URL+'/{ref}');
+  deleteProduit(id:number):Observable<any>{
+    return this.http.delete("http://localhost:8080/api/produit/"+id);
   }
 
 }
