@@ -12,6 +12,8 @@ import {AppRoutingModule} from './app.routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ProduitService} from './Services/produit.service';
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -22,7 +24,9 @@ import {HttpClientModule} from '@angular/common/http';
     NavbarComponent,
     SidebarComponent,
     ContentComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
