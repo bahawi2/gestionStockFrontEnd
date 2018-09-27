@@ -14,6 +14,7 @@ import {ProduitService} from './Services/produit.service';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import {AppService} from "./Services/app.service";
 
 
 
@@ -34,7 +35,7 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ProduitService],
+  providers: [ProduitService,AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

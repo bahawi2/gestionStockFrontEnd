@@ -3,8 +3,18 @@ import {RouterModule , Routes} from '@angular/router';
 import {ProduitComponent} from './produit/produit.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {ProduitResolver} from './produit/produit.resolver';
+import {HomeComponent} from "./home/home.component";
+import {LoginComponent} from "./login/login.component";
 
 export const appRoutes:Routes=[
+  {
+    path:'home',
+    component:HomeComponent
+  },
+  {
+    path:'login',
+    component:LoginComponent
+  },
   {
     path:'produit',
     component:ProduitComponent,
@@ -12,8 +22,14 @@ export const appRoutes:Routes=[
       produits:ProduitResolver
     }
   },
-  {path:'dashboard', component:DashboardComponent},
-  {path:'', redirectTo: '/dashboard',pathMatch:'full'}
+  {
+    path:'dashboard',
+    component:DashboardComponent
+  },
+  {
+    path:'',
+    redirectTo: '/home',
+    pathMatch:'full'}
 
 ];
 @NgModule({
