@@ -5,9 +5,9 @@ export class AppService {
 
   authenticated:boolean=false;
   constructor() { }
-  authenticate(crdentials, callback)
+  authenticate(credentials, callback)
   {
-    if(crdentials && crdentials.username == "admin" && crdentials.password == "admin")
+    if(credentials && credentials.username == "admin" && credentials.password == "admin")
     {
       this.authenticated=true;
     }
